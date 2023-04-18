@@ -2,7 +2,7 @@
 
 A software solution for managing parking facilities, including parking lots, clients, and other areas where vehicles can be parked.
 
-The system was produced using only the java language with  swing libraries.
+The system was produced using only the java language with  swing library.
 
 ## Features
 

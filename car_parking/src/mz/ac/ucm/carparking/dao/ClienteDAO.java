@@ -15,7 +15,7 @@ public class ClienteDAO {
     private final String SELECT = "SELECT * FROM cliente";
     private final String DELETE = "DELETE FROM cliente WHERE idcliente=?";
     private final String UPDATE = "UPDATE cliente SET nome=?,apelido=?,contacto=?,sexo=? WHERE idcliente=?";
-    
+
     public void create(Cliente cliente, JComboBox list) {
 
         Connection connection = null;
@@ -24,7 +24,15 @@ public class ClienteDAO {
         try {
             connection = ConnectionFactory.getConnection();
             statement = connection.prepareStatement(CREATE);
-            statement.setInt(1, Integer.parseInt((String) list.getItemAt(list.getItemCount() - 1)) + 1);
+
+            int nextId = 1; // Default value if list is empty
+
+            // Check if the list is not empty and the last item is not null
+            if (list.getItemCount() > 0 && list.getItemAt(list.getItemCount() - 1) != null) {
+                nextId = Integer.parseInt((String) list.getItemAt(list.getItemCount() - 1)) + 1;
+            }
+
+            statement.setInt(1, nextId);
             statement.setString(2, cliente.getNome());
             statement.setString(3, cliente.getApelido());
             statement.setString(4, cliente.getContacto());
@@ -38,6 +46,7 @@ public class ClienteDAO {
             ConnectionFactory.closeConnection(connection, statement);
         }
     }
+
 
     public List<Cliente> read() {
 

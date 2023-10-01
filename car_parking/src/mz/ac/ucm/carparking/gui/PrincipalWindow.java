@@ -8,6 +8,7 @@ import java.sql.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+
 import mz.ac.ucm.carparking.connection.ConnectionFactory;
 import mz.ac.ucm.carparking.dao.CarroDAO;
 import mz.ac.ucm.carparking.dao.ClienteDAO;
@@ -23,7 +24,7 @@ import mz.ac.ucm.carparking.domain.Slot;
 public class PrincipalWindow extends JFrame implements ActionListener, MouseListener, FocusListener {
 
     ClassLoader ldr = this.getClass().getClassLoader();
-    
+
     private final Color COLOR = new Color(0, 101, 112);
     private final Border outsideBorder = BorderFactory.createLineBorder(new Color(189, 186, 184), 1);
     private final Border insideBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
@@ -141,8 +142,8 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
         setLocationRelativeTo(null);    //centraliza a janela
         // define o layout null, todos itens serão colocados manualmente sem nenhum layout pre-definido
         setResizable(false);
-        
-        
+
+
         URL programIconURL = ldr.getResource("images/programIcon.png");
         ImageIcon programIcon = new ImageIcon(programIconURL);
         setIconImage(programIcon.getImage());
@@ -299,14 +300,14 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
         //adicionando labels ao painel direito HOME
         URL vehicleURL = ldr.getResource("images/principal/home/vehicles.png");
         ImageIcon vehicle = new ImageIcon(vehicleURL);
-       
+
         JLabel funcionariosText = new JLabel("Funcionarios");
         funcionariosText.setBounds(220, 270, 250, 50);
         funcionariosText.setFont(new Font("Times New Roman", Font.BOLD, 30));
         funcionariosText.setVerticalAlignment(JLabel.CENTER);
         funcionariosText.setForeground(COLOR);
         funcionariosText.setHorizontalAlignment(JLabel.CENTER);
-        
+
         availableLotLabel = new JLabel(vehicle);
         availableLotLabel.setBounds(320, 70, 50, 50);
         textAvailableLotNumber = new JLabel("0");
@@ -336,7 +337,7 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
 
         showFuncionarios();
 
-       
+
         rightPanelHome.add(funcionariosText);
         rightPanelHome.add(availableLotLabel);
         rightPanelHome.add(textAvailableLotNumber);
@@ -1220,10 +1221,10 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
 
         for (Funcionario funcionario : funcionarioDAO.read()) {
             funcionarioTableModel.addRow(new Object[]{
-                funcionario.getIdFuncionario(),
-                funcionario.getNome(),
-                funcionario.getApelido(),
-                funcionario.getCargo()
+                    funcionario.getIdFuncionario(),
+                    funcionario.getNome(),
+                    funcionario.getApelido(),
+                    funcionario.getCargo()
             });
         }
     }
@@ -1234,9 +1235,9 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
 
         for (Slot slot : lugares.read()) {
             lotTableModel.addRow(new Object[]{
-                slot.getIdSlot(),
-                slot.getCarroMatricula(),
-                slot.getStatus()
+                    slot.getIdSlot(),
+                    slot.getCarroMatricula(),
+                    slot.getStatus()
             });
         }
     }
@@ -1260,11 +1261,11 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
 
         for (Cliente cliente : client.read()) {
             costumerTableModel.addRow(new Object[]{
-                cliente.getIdCliente(),
-                cliente.getNome(),
-                cliente.getApelido(),
-                cliente.getSexo(),
-                cliente.getContacto()
+                    cliente.getIdCliente(),
+                    cliente.getNome(),
+                    cliente.getApelido(),
+                    cliente.getSexo(),
+                    cliente.getContacto()
             });
         }
     }
@@ -1388,13 +1389,13 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
 
         for (Carro carrox : carro.read()) {
             carsTableModel.addRow(new Object[]{
-                carrox.getMatricula(),
-                carrox.getCor(),
-                carrox.getMarca(),
-                carrox.getModelo(),
-                carrox.getAno(),
-                carrox.getProprietario(),
-                carrox.getAmountPaid()
+                    carrox.getMatricula(),
+                    carrox.getCor(),
+                    carrox.getMarca(),
+                    carrox.getModelo(),
+                    carrox.getAno(),
+                    carrox.getProprietario(),
+                    carrox.getAmountPaid()
             });
         }
     }
@@ -1441,9 +1442,9 @@ public class PrincipalWindow extends JFrame implements ActionListener, MouseList
 
         for (Login login : loginDAO.read()) {
             loginTableModel.addRow(new Object[]{
-                login.getUsername(),
-                login.getTipo(),
-                login.getIdFuncionario(),});
+                    login.getUsername(),
+                    login.getTipo(),
+                    login.getIdFuncionario(),});
         }
     }
 

@@ -16,7 +16,7 @@ public class ConnectionFactory {
     private static final String DATABASE_USER = "root";
 
     //senha do banco de dados
-    private static final String DATABASE_PASSWORD = "";
+    private static final String DATABASE_PASSWORD = "pedrinho2003";
 
     //método responsável por estabelecer a conexão com a base de dados
     public static Connection getConnection() {
